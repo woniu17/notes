@@ -27,3 +27,20 @@ chmod 4755 /path/to/bin/file
 chmod u+s /path/to/bin/file
 ```
 参考：http://www.cnblogs.com/javaee6/p/4026108.html
+
+
+### 修改时区
+```
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+```
+
+
+### ssh免密码登陆
+```
+ssh-keygen -t rsa -P '' # machina A
+# machine A .ssh/id_rsa.pub
+cat id_rsa.pub >> ~/.ssh/authorized_keys # machine B
+chmod 600 ~/.ssh/authorized_keys # machine B
+# A可免密码登陆B
+```
+**注意：拥有私钥的机器可登陆拥有公钥的机器**
