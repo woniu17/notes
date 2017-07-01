@@ -23,3 +23,29 @@ lsattr /etc/resolv.conf
 # 因此当发现文件具有可读写权限，但仍无法删除时，可使用以下命令
 chattr -i /etc/resolv.conf 
 ```
+
+### date
+```shell
+ # 转成时间戳
+date -d "2017/03/07 10:03:44" +%s
+```
+时间戳转换为时间格式：
+```
+# 时间戳转成特定格式
+date -d @1494385820
+date -d @1494385820 +"%Y-%m-%d %H:%M:%S"
+```
+
+### sed
+```
+# 将当前目录底下（递归）所有的c文件中的字符串xxx替换成yyy
+sed -i s/xxx/yyy/g `grep xxx -rl --include="*.c" --include="*.h" ./`
+```
+
+### cp/scp
+```
+# 复制，不改变文件的修改时间等文件属性
+cp -p from_file to_file
+scp -p from_file to_file
+```
+
