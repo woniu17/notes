@@ -44,3 +44,15 @@ chmod 600 ~/.ssh/authorized_keys # machine B
 # A可免密码登陆B
 ```
 **注意：拥有私钥的机器可登陆拥有公钥的机器**
+
+### 缩小TCP写超时时间
+```
+sysctl -a | grep retries
+net.ipv4.tcp_retries1 = 3
+net.ipv4.tcp_retries2 = 3
+```
+
+### 本地TCP端口范围限制
+```
+net.ipv4.ip_local_port_range = 32768	61000
+```
