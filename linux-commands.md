@@ -49,3 +49,12 @@ cp -p from_file to_file
 scp -p from_file to_file
 ```
 
+### printf
+```
+# 将ip转换成相应的整型数
+printf "%02x%02x%02x%02x\n" 52 80 12 199
+34500cc7
+printf "%u\n" 0x34500cc7
+877661383
+```
+
