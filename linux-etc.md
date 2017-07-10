@@ -56,3 +56,11 @@ net.ipv4.tcp_retries2 = 3
 ```
 net.ipv4.ip_local_port_range = 32768	61000
 ```
+
+### iptalbes无法正常启动
+```
+# 缺少iptables文件
+touch /etc/sysconfig/iptables
+/etc/init.d/iptables start
+```
+http://blog.csdn.net/u012700515/article/details/52127501
