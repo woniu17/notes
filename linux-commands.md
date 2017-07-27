@@ -62,3 +62,11 @@ printf "%u\n" 0x34500cc7
 ```
 默认搜寻/lilb和/usr/lib，以及配置文件/etc/ld.so.conf内所列的目录下的库文件。
 ```
+
+### sar
+```
+# 查看网卡流量
+sar -n DEV 1
+# 查看TCP连接数量
+sar -n TCP 1
+```
