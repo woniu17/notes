@@ -70,3 +70,9 @@ sar -n DEV 1
 # 查看TCP连接数量
 sar -n TCP 1
 ```
+
+### ps
+```
+# 查看某进程的所有线程各自绑定的CPU及CPU使用率
+ps -L -o pid,tid,psr,pcpu,comm -p <pid>
+```
