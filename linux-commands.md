@@ -76,3 +76,9 @@ sar -n TCP 1
 # 查看某进程的所有线程各自绑定的CPU及CPU使用率
 ps -L -o pid,tid,psr,pcpu,comm -p <pid>
 ```
+
+### socat
+```
+# 向UDP端口127.0.0.1:5555发送包含hello的UDP数据包
+echo hello | socat - udp4-datagram:127.0.0.1:5555
+```
