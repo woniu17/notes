@@ -45,3 +45,13 @@ set print pretty on/off
 ```
 set print array on/off
 ```
+
+### 打印所有线程的堆栈
+```
+thread apply all bt
+```
+
+### 执行命令并退出（适用于线上排查问题）
+```
+db -ex "set pagination 0" -ex "thread apply all bt" -batch -p $pid
+```
