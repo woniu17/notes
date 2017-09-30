@@ -82,3 +82,15 @@ ps -L -o pid,tid,psr,pcpu,comm -p <pid>
 # 向UDP端口127.0.0.1:5555发送包含hello的UDP数据包
 echo hello | socat - udp4-datagram:127.0.0.1:5555
 ```
+
+### dig
+```
+# 查询IP（域名解析）
+dig +short m.linqingxiang.com
+
+# 查域名（域名反向解析）
+dig +short -x 8.8.8.8
+
+# 向特定的DNS服务器查询IP
+dig +short @114.114.114.114 emo.linqingxiang.com
+```
