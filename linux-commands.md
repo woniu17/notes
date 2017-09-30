@@ -84,6 +84,7 @@ echo hello | socat - udp4-datagram:127.0.0.1:5555
 ```
 
 ### dig
+https://www.madboa.com/geek/dig/
 ```
 # 查询IP（域名解析）
 dig +short m.linqingxiang.com
