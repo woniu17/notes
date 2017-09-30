@@ -94,3 +94,9 @@ dig +short -x 8.8.8.8
 # 向特定的DNS服务器查询IP
 dig +short @114.114.114.114 emo.linqingxiang.com
 ```
+
+### host
+```
+# 查询域名
+host emo.linqingxiang.com
+```
