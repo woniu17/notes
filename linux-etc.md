@@ -64,3 +64,24 @@ touch /etc/sysconfig/iptables
 /etc/init.d/iptables start
 ```
 http://blog.csdn.net/u012700515/article/details/52127501
+
+### 多版本openssl，如何编译python
+```
+# 系统中存在多个版本的openssl
+# openssl-devel-0.9.8e-34.el5_11
+/lib64/libssl.so.09
+/lib64/libcrypto.so.09
+
+# openssl-devel-1.0.1e-16.14
+/usr/lib64/libssl.so.10
+/usr/lib64/libcrypto.so.10
+
+# 将高版本的.so文件连接到/lib64底下
+ln -s /usr/lib64/libssl.so.10 /lib64/libssl.so.10
+ln -s /usr/lib64/libcrypto.so.10 /lib64/libcrypto.so.10
+
+# 删除编译过的python源代码，重新解压源文件
+./configure
+make
+make install
+```
