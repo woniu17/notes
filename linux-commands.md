@@ -101,3 +101,11 @@ dig +short @114.114.114.114 emo.linqingxiang.com
 # 查询域名
 host emo.linqingxiang.com
 ```
+
+### tcpdump
+```
+# 查看端口号为8080的http流
+tcpdump -A tcp port 8080
+# 查看lo网卡中端口号为8080的http流
+tcpdump -i -A tcp port 8080
+```
