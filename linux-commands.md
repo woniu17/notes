@@ -1,3 +1,4 @@
+https://gist.github.com/ameizi/cb126be7383fb463eae8
 ### touch
 ```
 # 将mtime设置为当前时间
