@@ -110,3 +110,11 @@ tcpdump -A tcp port 8080
 # 查看lo网卡中端口号为8080的http流
 tcpdump -i -A tcp port 8080
 ```
+
+### nc
+```
+# 查看TCP端口是否开启
+nc -z 127.0.0.1 8008
+# 查看UDP端口是否开启
+nc -u -z 127.0.0.1 8888
+```
