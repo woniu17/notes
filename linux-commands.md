@@ -1,4 +1,11 @@
 https://gist.github.com/ameizi/cb126be7383fb463eae8
+### awk
+```
+# 调用shell命令
+ls -l | grep ^d | awk '{cmd=sprintf("find %s -name %s.*", $9, $9); system(cmd)}'
+
+```
+
 ### touch
 ```
 # 将mtime设置为当前时间
