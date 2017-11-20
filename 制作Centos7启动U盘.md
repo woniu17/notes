@@ -1,5 +1,7 @@
 # 下载Centos-bin镜像文件(CentOS-7-x86_64-DVD-1708.iso)
 
+http://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1708.iso
+
 # 将bin镜像文件写入USB中
 ```
 # /dev/sdb即U盘设备
