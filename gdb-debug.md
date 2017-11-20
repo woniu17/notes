@@ -14,8 +14,6 @@ x/s char_array
 x/10s char_array
 ```
 
-
-
 ### 打印函数参数
 ```
 info args
