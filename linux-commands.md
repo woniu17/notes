@@ -1,4 +1,15 @@
 https://gist.github.com/ameizi/cb126be7383fb463eae8
+
+### ethtool
+```
+ethtool -S eth0
+```
+
+### top
+```
+# 查看软中断
+```
+
 ### awk
 ```
 # 调用shell命令
