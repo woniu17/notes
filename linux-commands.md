@@ -10,6 +10,12 @@ ethtool -S eth0
 # 查看软中断
 ```
 
+### stdbuf
+```
+# 同时在屏幕上和文件中输出日志，bin_cmd为输出日志的程序
+stdbuf -o 0 bin_cmd | tee file.log
+```
+
 ### awk
 ```
 # 调用shell命令
