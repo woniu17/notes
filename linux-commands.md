@@ -1,4 +1,12 @@
-https://gist.github.com/ameizi/cb126be7383fb463eae8
+### iptables
+#### 丢掉特定长度的UDP报文 [参考](https://serverfault.com/questions/523965/blocking-udp-packets-with-a-length-of-4)
+```
+# 丢掉目的端口为8888，UDP数据长度为4的UDP报文
+# IP头部(20) + UDP头部(8) + UDP数据(4) = 32
+iptables -t raw -A PREROUTING -p udp --dport 8888 -m length --length 32 -j DROP
+# 丢掉目的端口为8888，UDP数据长度小于12的UDP报文
+iptables -t raw -A PREROUTING -p udp --dport 8888 -m length --length 0:40 -j DROP
+```
 
 ### ethtool
 ```
@@ -17,10 +25,14 @@ stdbuf -o 0 bin_cmd | tee file.log
 ```
 
 ### awk
+### 调用shell命令
 ```
-# 调用shell命令
 ls -l | grep ^d | awk '{cmd=sprintf("find %s -name %s.*", $9, $9); system(cmd)}'
+```
 
+#### 统计TCP连接状态 [参考](https://gist.github.com/ameizi/cb126be7383fb463eae8)
+```
+netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
 ```
 
 ### touch
