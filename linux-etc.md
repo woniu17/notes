@@ -85,3 +85,12 @@ ln -s /usr/lib64/libcrypto.so.10 /lib64/libcrypto.so.10
 make
 make install
 ```
+
+### SVN服务器搭建注意事项
+```
+# 不能再配置行末添加注释，如：
+[general]
+anon-access = none # hello
+auth-access = write # 不能再行末添加注释
+password-db = passwd
+```
