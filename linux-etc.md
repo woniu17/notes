@@ -94,3 +94,9 @@ anon-access = none # hello
 auth-access = write # 不能再行末添加注释
 password-db = passwd
 ```
+
+### mac os关闭HiDPI
+```
+# 在vmware上安装mac os后，安装完vmware tools后，需要关闭HiDPI才能正常全屏
+sudo defaults write /Library/Preferences/com.apple.windowserver.plist DisplayResolutionEnabled -bool false
+```
