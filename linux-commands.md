@@ -8,6 +8,15 @@ iptables -t raw -A PREROUTING -p udp --dport 8888 -m length --length 32 -j DROP
 iptables -t raw -A PREROUTING -p udp --dport 8888 -m length --length 0:40 -j DROP
 ```
 
+#### 丢掉特定内容的UDP报文 [参考一](https://stackoverflow.com/questions/825481/iptable-rule-to-drop-packet-with-a-specific-substring-in-payload) 
+```
+iptables -A INPUT -m string --algo bm --string "test" -j DROP
+```
+#### 丢掉特定内容(hex)的UDP报文 [参考二](https://serverfault.com/questions/404081/iptables-drop-packet-by-hex-string-match)
+```
+iptables --append INPUT --match string --algo kmp --hex-string '|f4 6d 04 25 b2 02 00 0a|' --jump DROP
+```
+
 ### ethtool
 ```
 ethtool -S eth0
