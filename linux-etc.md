@@ -1,3 +1,13 @@
+### LDADD和LIBADD的区别、指定libtool(*.la)库和非libtool库的区别 [参考](https://stackoverflow.com/questions/23685981/what-is-the-difference-between-ldadd-and-libadd)
+1. LDADD用于指定可执行文件的依赖库
+    ```
+    libfoo_la_LIBADD = libbar.la -L/opt/local/lib -lm
+    ```
+1. LIBADD用于指定库文件的依赖库
+    ```
+    myprog_LDADD = libfoo.la -L /usr/lib -lpthread
+    ```
+
 ### 安装内核模块
 ```
 insmod some.ko # 临时安装，重启失效

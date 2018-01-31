@@ -1,4 +1,5 @@
-### shopt [参考](https://stackoverflow.com/questions/9187566/globbing-with-ls-to-find-all-files-matching-a-certain-pattern)
+### shopt
+#### bash启用glob模式 [参考](https://stackoverflow.com/questions/9187566/globbing-with-ls-to-find-all-files-matching-a-certain-pattern)
 ```
 shopt -s globstar
 ls **/*.am
