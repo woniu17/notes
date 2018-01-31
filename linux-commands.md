@@ -1,3 +1,9 @@
+### shopt [参考](https://stackoverflow.com/questions/9187566/globbing-with-ls-to-find-all-files-matching-a-certain-pattern)
+```
+shopt -s globstar
+ls **/*.am
+```
+
 ### iptables
 #### 丢掉特定长度的UDP报文 [参考](https://serverfault.com/questions/523965/blocking-udp-packets-with-a-length-of-4)
 ```
