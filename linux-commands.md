@@ -1,3 +1,28 @@
+### svn
+#### 将我的分支上的提交合并到trunk上
+```
+svn merge svn://url/of/my/branch trunk_working_directory
+```
+#### 将我的分支同步到与trunk完全一致
+```
+svn merge svn://url/of/trunk@HEAD svn://url/of/my/branch@HEAD my_branch_working_directory
+```
+**说明**
+```
+# 将from_url@from_revision到to_url@to_revision的差异作用到working_directory上
+svn merge from_url@from_revision to_url@to_revision working_directory
+```
+
+### filterdiff
+#### 对比我的分支和trunk之间的内容差异（不包括文件属性差异）
+```
+svn diff svn://url/of/trunk svn://url/of/my/branch | filterdiff --clean
+```
+#### 对比我的分支和trunk之间的内容差异（排除某些文件）
+```
+svn diff svn://url/of/trunk svn://url/of/my/branch | filterdiff --clean --exclude='some_file_name'
+```
+
 ### shopt
 #### bash启用glob模式 [参考](https://stackoverflow.com/questions/9187566/globbing-with-ls-to-find-all-files-matching-a-certain-pattern)
 ```
