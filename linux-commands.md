@@ -3,7 +3,7 @@
 ```
 svn merge svn://url/of/my/branch trunk_working_directory
 ```
-#### 将我的分支同步到与trunk完全一致(参考)[http://structure.usc.edu/svn/svn.ref.svn.c.merge.html]
+#### 将我的分支同步到与trunk完全一致[参考](http://structure.usc.edu/svn/svn.ref.svn.c.merge.html)
 ```
 svn merge svn://url/of/trunk@HEAD svn://url/of/my/branch@HEAD my_branch_working_directory
 ```
