@@ -1,3 +1,18 @@
+### tc
+#### 限制web(80端口)的写出速度[参考](https://www.cnblogs.com/Peiwen-on-the-way/articles/3566811.html)
+```
+tc qdisc add dev eth0 root handle 1:0 htb default 11
+tc class add dev eth0 parent 1:0 classid 1:10 htb rate 512kbps ceil 640kbps prio 0
+tc filter add dev eth0 parent 1:0 prio 0 protocol ip handle 10 fw flowid 1:10
+iptables -A OUTPUT -t mangle -p tcp --sport 80 -j MARK --set-mark 10
+```
+
+### nethogs
+#### 查看某个进程的TCP流量
+```
+nethogs
+```
+
 ### svn
 #### 将我的分支上的提交合并到trunk上
 ```
