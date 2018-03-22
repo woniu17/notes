@@ -45,14 +45,14 @@
 /var/spool/cron/root
 ```
 
-### LDADD和LIBADD的区别、指定libtool(*.la)库和非libtool库的区别 [参考](https://stackoverflow.com/questions/23685981/what-is-the-difference-between-ldadd-and-libadd)
+### LDADD和LIBADD的区别、指定libtool(foo.la)库和非libtool库的区别 [参考](https://stackoverflow.com/questions/23685981/what-is-the-difference-between-ldadd-and-libadd)
 1. LDADD用于指定可执行文件的依赖库
     ```
-    libfoo_la_LIBADD = libbar.la -L/opt/local/lib -lm
+    myprog_LDADD = ./foo/libfoo.la -L /usr/lib -lpthread
     ```
 1. LIBADD用于指定库文件的依赖库
     ```
-    myprog_LDADD = libfoo.la -L /usr/lib -lpthread
+    libfoo_la_LIBADD = ../bar/libbar.la -L/opt/local/lib -lm
     ```
 
 ### 安装内核模块
