@@ -1,3 +1,10 @@
+### flock
+#### crontab执行某一定时任务，如果上一周期触发的同一任务尚未执行完成，则本次不执行
+```
+*/1 * * * * root flock -xn /tmp/shell_01.lock -c '/path/to/task/shell_01.sh' > /dev/null 2>&1
+```
+
+
 ### tc
 #### 限制web(80端口)的写出速度[参考](https://www.cnblogs.com/Peiwen-on-the-way/articles/3566811.html)
 ```
