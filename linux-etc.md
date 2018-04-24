@@ -157,3 +157,61 @@ password-db = passwd
 # 在vmware上安装mac os后，安装完vmware tools后，需要关闭HiDPI才能正常全屏
 sudo defaults write /Library/Preferences/com.apple.windowserver.plist DisplayResolutionEnabled -bool false
 ```
+
+
+### awk处理Windows文件
+1. Linux换行符
+```
+This is a line!\n
+```
+1. Windows换行符
+```
+This is a line!\r\n
+```
+1. Mac换行符
+```
+This is a line!\r
+```
+如果awk处理的是windows文件，那么会出现“意想不到”的结果，文件内容如下：
+```
+This is a line!\r\n
+```
+
+使用以下命令处理该文件:
+```
+cat file.txt | awk '{printf("content #%s#", $0);}'
+```
+
+ 预期输出的效果是：
+ ```
+ content #This is a line!#
+ ```
+
+ 实际输出的效果是：
+ ```
+ #ontent #This is a line!
+ ```
+ 行末的'#'跑到了行首，并替换了行首的字母'c'
+
+ 原因：
+ 在Linux中，\n才是换行符的标志，因此awk输出的内容是：
+ ```
+ content #This is a line!\r#
+ ```
+
+ 其中\r是特殊控制字符，意为回到行首，\r将输出光标移到行首后，接着输出字符'#'
+
+ ### linux如何在没有视频输出设备的情况下，开启图形化软件
+```
+# Xvfb实现兼容X11显示协议的虚拟设备
+yum install xorg-x11-server-Xvfb
+# 虚拟出了一个分辨率为1024x768，24色，设备编号为":1"的显示设备
+Xvfb :1 -screen 0 1024x768x24
+# 设置终端的环境变量，将显示输出指向虚拟设备":1"
+export DISPLAY=:1
+```
+
+### 如何查看当前的shell是sh，还是bash，或是ksh
+```
+echo $0
+```
