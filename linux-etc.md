@@ -1,44 +1,44 @@
 ### ycm如何include项目的头文件
-    1. 在项目最上层目录添加文件`.ycm_extra_conf.py`
-    1. 在该文件里面添加头文件所在目录的相对路径
-    ```
-    '-I',
-    'moduleA/include',
-    '-I',
-    'moduleB/include',
-    ```
+1. 在项目最上层目录添加文件`.ycm_extra_conf.py`
+1. 在该文件里面添加头文件所在目录的相对路径
+```
+'-I',
+'moduleA/include',
+'-I',
+'moduleB/include',
+```
 
 ### ycm跳转到定义/声明
-    ```
-    nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
-    nnoremap <leader>l :YcmCompleter GoToDeclaration<CR>
-    nnoremap <leader><Space> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-    ```
+```
+nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>l :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader><Space> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+```
 
 ### ctrlp过滤搜索文件/目录
-    ```
-    set wildignore+=*/build/*,*/tmp/*,*.so,*.swp,*.zip
-    let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-      \ 'file': '\v\.(exe|so|dll|lo|o)$',
-      \ }
-    ```
+```
+set wildignore+=*/build/*,*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll|lo|o)$',
+    \ }
+```
 
 ### vim的键盘符号详细说明
-    ```
-    :help key-notation
-    ```
+```
+:help key-notation
+```
 
 ### vim小技巧(参考)[http://roclinux.cn/?p=1621]
-    1. A: 在本行行尾插入
-    1. I: 在本行行尾插入
-    1. J：可以去除本行和下一行之间的换行符，也就是将下一行续接到本行尾部
-    1. ~：光标所在处的字符进行大小写互换
-    1. zz： 将当前行放置于页面中间，利于阅读
-    1. zt：将当前行放置于页面的最顶端，一般阅读函数定义时，非常非常有用
-    1. zb：将当前行放置于页面的最末端
-    1. ctrl-a：可以将光标所在处的数字加1，负数和多位数都在支持范围内哦。可以用这个快捷键配合宏来干很多事情喽。
-    1. ctrl-x：有加1就会有减1，聪明！
+1. A: 在本行行尾插入
+1. I: 在本行行尾插入
+1. J：可以去除本行和下一行之间的换行符，也就是将下一行续接到本行尾部
+1. ~：光标所在处的字符进行大小写互换
+1. zz： 将当前行放置于页面中间，利于阅读
+1. zt：将当前行放置于页面的最顶端，一般阅读函数定义时，非常非常有用
+1. zb：将当前行放置于页面的最末端
+1. ctrl-a：可以将光标所在处的数字加1，负数和多位数都在支持范围内哦。可以用这个快捷键配合宏来干很多事情喽。
+1. ctrl-x：有加1就会有减1，聪明！
 
 ### root的crontab表
 ```
@@ -214,4 +214,9 @@ export DISPLAY=:1
 ### 如何查看当前的shell是sh，还是bash，或是ksh
 ```
 echo $0
+```
+
+### 如何使用Slimerjs在无界面的服务器上抓取Flash视频
+```
+https://blog.goquxiao.com/posts/2016/04/06/flash-crawl-flash/
 ```
