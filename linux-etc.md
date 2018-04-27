@@ -234,3 +234,20 @@ export DISPLAY=:1
 1. linux内核3.9版本支持通过设置SO\_REUSEPORT支持多个监听socket绑定同一个IP-port，为防止端口劫持，后绑定的进程的用户ID必须和先绑定的进程的用户ID相同
    > One of the features merged in the 3.9 development cycle was TCP and UDP support for the SO\_REUSEPORT socket option; that support was implemented in a series of patches by Tom Herbert. The new socket option allows multiple sockets on the same host to bind to the same port, and is intended to improve the performance of multithreaded network server applications running on top of multicore systems.
    > To prevent unwanted processes from hijacking a port that has already been bound by a server using SO\_REUSEPORT, all of the servers that later bind to that port must have an effective user ID that matches the effective user ID used to perform the first bind on the socket.
+
+### Linux环境变量与shell变量 [参考](https://www.cnblogs.com/disanyuzhou/p/6825919.html)
+1. 环境变量
+环境变量，又称用户变量，与shell无关
+```
+# 显示当前环境变量
+env
+```
+1. shell变量
+Shell变量，又称本地变量，包括私有变量以及用户变量
+```
+# 显示当前shell本地变量
+set
+# 将shell本地变量导出成环境变量
+export LUA_PATH
+# 查看转换成环境变量的shell本地变量
+```
