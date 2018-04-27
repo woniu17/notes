@@ -29,7 +29,7 @@ let g:ctrlp_custom_ignore = {
 :help key-notation
 ```
 
-### vim小技巧(参考)[http://roclinux.cn/?p=1621]
+### vim小技巧[参考](http://roclinux.cn/?p=1621)
 1. A: 在本行行尾插入
 1. I: 在本行行尾插入
 1. J：可以去除本行和下一行之间的换行符，也就是将下一行续接到本行尾部
@@ -83,8 +83,6 @@ modprobe some.ko
 chmod 4755 /path/to/bin/file
 chmod u+s /path/to/bin/file
 ```
-参考：http://www.cnblogs.com/javaee6/p/4026108.html
-
 
 ### 修改时区
 ```
@@ -114,13 +112,13 @@ net.ipv4.tcp_retries2 = 3
 net.ipv4.ip_local_port_range = 32768	61000
 ```
 
-### iptalbes无法正常启动
+### iptalbes无法正常启动 [参考](http://blog.csdn.net/u012700515/article/details/52127501)
 ```
 # 缺少iptables文件
 touch /etc/sysconfig/iptables
 /etc/init.d/iptables start
 ```
-http://blog.csdn.net/u012700515/article/details/52127501
+
 
 ### 多版本openssl，如何编译python
 ```
@@ -216,7 +214,23 @@ export DISPLAY=:1
 echo $0
 ```
 
-### 如何使用Slimerjs在无界面的服务器上抓取Flash视频
+### 如何使用Slimerjs在无界面的服务器上抓取Flash视频 [参考](https://blog.goquxiao.com/posts/2016/04/06/flash-crawl-flash)
 ```
-https://blog.goquxiao.com/posts/2016/04/06/flash-crawl-flash/
+# 安装flash插件
+yum -y install http://linuxdownload.adobe.com/linux/x86_64/adobe-release-x86_64-1.0-1.noarch.rpm
+yum repolist | grep -i adobe
+yum install flash-plugin
+# 安装虚拟视频设备
+yum install xorg-x11-server-Xvfbu
+# 启动虚拟视频设备
+Xvfb :1 -screen 0 1024x768x24
+export DISPLAY=:1
 ```
+
+### Linux是否支持不同的进程/线程监听同一个IP-Port [参考一](https://lwn.net/Articles/542629/) [参考二](http://www.cnblogs.com/Anker/p/7076537.html)
+1. 子进程继承父进程监听的TCP/UDP端口
+1. UDP通过设置SO\_REUSEADDR达到可以绑定同一个IP-Port
+    > Tom noted that the traditional SO\_REUSEADDR socket option already allows multiple UDP sockets to be bound to, and accept datagrams on, the same UDP port. However, by contrast with SO_REUSEPORT, SO_REUSEADDR does not prevent port hijacking and does not distribute datagrams evenly across the receiving threads.
+1. linux内核3.9版本支持通过设置SO\_REUSEPORT支持多个监听socket绑定同一个IP-port，为防止端口劫持，后绑定的进程的用户ID必须和先绑定的进程的用户ID相同
+   > One of the features merged in the 3.9 development cycle was TCP and UDP support for the SO\_REUSEPORT socket option; that support was implemented in a series of patches by Tom Herbert. The new socket option allows multiple sockets on the same host to bind to the same port, and is intended to improve the performance of multithreaded network server applications running on top of multicore systems.
+   > To prevent unwanted processes from hijacking a port that has already been bound by a server using SO\_REUSEPORT, all of the servers that later bind to that port must have an effective user ID that matches the effective user ID used to perform the first bind on the socket.
