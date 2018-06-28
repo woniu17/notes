@@ -261,3 +261,12 @@ export LUA_PATH
 ```
 当对一个TCP套接字调用close进行关闭时，一般情况下会发送Fin包，但如果对端发送的数据还保存在内核中，进程没有使用recv将数据读到应用层，则此时调用close，内核将发送Reset包给对端。
 ```
+
+### c中的printf打印字符串
+```
+# 至少打印10个字符（不足左边补空格）
+printf("%10s", my_str);
+printf("%*s", 10, my_str);
+# 至多打印10个字符
+printf("%.*s", 10, my_str);
+```
