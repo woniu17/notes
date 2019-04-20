@@ -153,4 +153,5 @@ git clone ssh://linqx@192.168.2.125:22/Users/linqx/repo/hello.git
 1. 将修改的好的hello.c文件提交到暂存区
 	```
 	git add hello.c
+	git commit -m "commit merge d and e"
 	```
